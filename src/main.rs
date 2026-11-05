@@ -11,13 +11,16 @@ fn main() {
 
     loop {
         sleep(Duration::from_secs(2));
-        let list = collector.top_by_ram(10);
+        let list = collector.top_groups_by_ram(10);
 
         let _ = Command::new("cmd").args(["/C", "cls"]).status();
-        println!("{:<30} {:>8} {:>10}", "NAME", "CPU", "RAM");
+        println!("{:<30} {:>5} {:>8} {:>10}", "NAME", "COUNT", "CPU", "RAM");
 
-        for p in &list {
-            println!("{:<30} {:>7.1}% {:>7} MB", p.name, p.cpu, p.ram_mb);
+        for g in &list {
+            println!(
+                "{:<30} {:>5} {:>7.1}% {:>7} MB",
+                g.name, g.count, g.cpu, g.ram_mb
+            );
         }
     }
 }
