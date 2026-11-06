@@ -1,3 +1,4 @@
+
 [package]
 name = "taskmanager"
 version = "0.1.0"
@@ -7,3 +8,6 @@ edition = "2024"
 eframe = "0.37.0"
 egui = "0.37.0"
 sysinfo = "0.40.1"
+
+[build-dependencies]
+winresource = "0.1"
